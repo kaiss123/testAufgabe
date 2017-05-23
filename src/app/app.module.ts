@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdGridListModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdGridListModule } from '@angular/material';
 import { MaterialModule } from '@angular/material';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { ImageService } from '../services/image.service';
     BrowserAnimationsModule,
     MdGridListModule,
     MaterialModule,
-    InfiniteScrollModule 
+    InfiniteScrollModule
   ],
   providers: [ImageService],
   bootstrap: [AppComponent]

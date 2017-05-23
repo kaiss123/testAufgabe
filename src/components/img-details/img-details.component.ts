@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import {MD_DIALOG_DATA} from '@angular/material';
-import {MdGridListModule} from '@angular/material';
+import { MD_DIALOG_DATA } from '@angular/material';
+import { MdGridListModule } from '@angular/material';
 import { ImageService } from '../../services/image.service';
 
 @Component({
@@ -9,15 +9,15 @@ import { ImageService } from '../../services/image.service';
   styleUrls: ['./img-details.component.css'],
   providers: [ImageService]
 })
-export class ImgDetailsComponent{
-  constructor(@Inject(MD_DIALOG_DATA) private data: any, private ImageService: ImageService) { 
-  	//injected data into this.data
-	this.getImgDetail();
+export class ImgDetailsComponent {
+  constructor( @Inject(MD_DIALOG_DATA) private data: any, private ImageService: ImageService) {
+    //injected data into this.data
+    this.getImgDetail();
   }
-  getImgDetail(){
-	this.ImageService.getMetaData(this.data.id)
+  getImgDetail() {
+    this.ImageService.getMetaData(this.data.id)
       .subscribe(results => {
-      	this.data=results.images[0];
+        this.data = results.images[0];
       });
   }
 }
