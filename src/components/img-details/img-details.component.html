@@ -1,0 +1,39 @@
+<md-grid-list cols="4" rowHeight="100px">
+    <md-grid-tile colspan="3" rowspan="3">
+        <md-grid-tile-header>
+            {{data.title}}
+        </md-grid-tile-header>
+        <img src="{{data.display_sizes[0].uri}}">
+    </md-grid-tile>
+    <md-grid-tile colspan="1" rowspan="4">
+        <md-chip-list class="mat-chip-list-stacked">
+            <md-chip>
+                Autor: {{data.artist}}
+            </md-chip>
+            <md-chip>
+                Erstellt am: {{data.date_created | date:'mediumDate'}}
+            </md-chip>
+            <md-chip>
+                Publiziert am: {{data.date_submitted | date:'mediumDate'}}
+            </md-chip>
+            <md-chip>
+                Höhe: {{data.max_dimensions.height}}px
+            </md-chip>
+            <md-chip>
+                Breite: {{data.max_dimensions.width}}px
+            </md-chip>
+            <md-chip>
+                Kollektion: {{data.collection_name}}
+            </md-chip>
+            <md-chip>
+                Land: {{data.country}}
+            </md-chip>
+            <md-chip>
+                Stadt: {{data.city}}
+            </md-chip>
+        </md-chip-list>
+    </md-grid-tile>
+    <md-grid-tile colspan="3" rowspan="1">
+        {{data.caption}}
+    </md-grid-tile>
+</md-grid-list>

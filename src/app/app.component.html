@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<h2>{{subtitle}}</h2>
+<input name="search" [(ngModel)]="searchTerm" (keyup.enter)="onSearch()">
+<button (click)="onSearch()">Search</button>
+<md-button-toggle-group>
+    <md-button-toggle [checked]="toggleSelector" (change)="toggleSelector = !toggleSelector">
+        <md-icon>list</md-icon>
+    </md-button-toggle>
+    <md-button-toggle [checked]="!toggleSelector" (change)="toggleSelector = !toggleSelector">
+        <md-icon>view_module</md-icon>
+    </md-button-toggle>
+</md-button-toggle-group>
+<br>
+<md-grid-list cols="4" rowHeight="200px" infinite-scroll [infiniteScrollDistance]="1" (scrolled)="onScroll()">
+    <md-grid-tile *ngFor="let img of results" [colspan]="!toggleSelector ? 1 : 4" [class.selected]="img === selectedImg" class="gimages" (click)="onSelect(img)">
+        <md-grid-tile-header>
+            <h3>{{img.title}}</h3></md-grid-tile-header>
+        <img src="{{img.display_sizes[0].uri}}">
+    </md-grid-tile>
+</md-grid-list>
+<br>
+<md-progress-bar *ngIf="isSearching" mode="indeterminate"></md-progress-bar>
